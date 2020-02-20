@@ -20,7 +20,7 @@ public class HanoiController {
   
   @ResponseBody
   public List<Hanoi> getAllCars(@PathVariable("Num") int Num) {
-      return HanoiMovements.getInstance().getCarRecords(Num);
+      return HanoiMovements.getInstance().getMovements(Num);
   }
   
 }

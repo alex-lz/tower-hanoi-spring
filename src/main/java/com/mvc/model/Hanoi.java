@@ -4,7 +4,10 @@ public class Hanoi {
 	
 	int disk;
 	char source;
-	char destinacion;
+	char destination;
+	int towerA;
+	int towerB;
+	int towerC;
 	
 	public int getDisk() {
 		return disk;
@@ -18,11 +21,29 @@ public class Hanoi {
 	public void setSource(char source) {
 		this.source = source;
 	}
-	public char getDestinacion() {
-		return destinacion;
+	public char getDestination() {
+		return destination;
 	}
-	public void setDestinacion(char destinacion) {
-		this.destinacion = destinacion;
-	} 
+	public void setDestination(char destination) {
+		this.destination = destination;
+	}
+	public int getTowerA() {
+		return towerA;
+	}
+	public void setTowerA(int towerA) {
+		this.towerA = towerA;
+	}
+	public int getTowerB() {
+		return towerB;
+	}
+	public void setTowerB(int towerB) {
+		this.towerB = towerB;
+	}
+	public int getTowerC() {
+		return towerC;
+	}
+	public void setTowerC(int towerC) {
+		this.towerC = towerC;
+	}
 
 }

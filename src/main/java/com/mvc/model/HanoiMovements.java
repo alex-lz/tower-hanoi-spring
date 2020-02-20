@@ -5,46 +5,47 @@ import java.util.List;
 
 public class HanoiMovements {
 	
-    private static List<Hanoi> carRecords;
-    private static HanoiMovements carregd = null;
-    //private static Hanoi hanoi = new Hanoi();;
+    private static List<Hanoi> Records;
+    private static HanoiMovements regd = null;
     private HanoiMovements() {
-        carRecords = new ArrayList<Hanoi>();
+        Records = new ArrayList<Hanoi>();
     }
     
     public static HanoiMovements getInstance() {
-        if(carregd == null) {
-            carregd = new HanoiMovements();
-            return carregd;
+        if(regd == null) {
+            regd = new HanoiMovements();
+            return regd;
         } else {
-        	carRecords.clear();
-        	System.out.println();
-            return carregd;
+        	Records.clear();
+        	System.out.println(" => Tower of Hanoi - Movements List");
+            return regd;
         }
     }  
     
     // Java recursive function to solve tower of hanoi puzzle 
-    static void towerOfHanoi(int n, char from_tower, char to_tower, char aux_tower) 
+    static void towerOfHanoi(int n, char from_tower, char to_tower, char aux_tower, int A, int B, int C) 
     { 
+
     	Hanoi hanoi = new Hanoi();
     	hanoi.setDisk(n);
     	hanoi.setSource(from_tower);
-    	hanoi.setDestinacion(to_tower);
+    	hanoi.setDestination(to_tower);
+
         if (n == 1) 
         { 
             System.out.println("Move disk 1 from Tower " +  from_tower + " to Tower " + to_tower); 
-            carRecords.add(hanoi);
+            Records.add(hanoi);
             return; 
         } 
-        towerOfHanoi(n-1, from_tower, aux_tower, to_tower); 
+        towerOfHanoi(n-1, from_tower, aux_tower, to_tower, A, B, C); 
         System.out.println("Move disk " + n + " from Tower " +  from_tower + " to Tower " + to_tower); 
-        carRecords.add(hanoi);
-        towerOfHanoi(n-1, aux_tower, to_tower, from_tower); 
+        Records.add(hanoi);
+        towerOfHanoi(n-1, aux_tower, to_tower, from_tower, A, B, C); 
     } 
     
-    public List<Hanoi> getCarRecords(int Num) {
-    	towerOfHanoi(Num, 'A', 'C', 'B');  // A, B and C are names of towers
-        return carRecords;
+    public List<Hanoi> getMovements(int Num) {
+    	towerOfHanoi(Num, 'A', 'C', 'B', Num, 0, 0);  // A, B and C are names of towers
+        return Records;
     }
     
 }
